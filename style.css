@@ -1,0 +1,146 @@
+html {
+  width: 100vw;
+  height: 100vh;
+  perspective: 1px;
+  perspective-origin: center center;
+  overflow-x: hidden;
+  background-color: khaki;
+  font-family: "Whisper", cursive;
+  font-size: clamp(1.105rem, 2vw, 1.15rem);
+
+  /* font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif; */
+}
+
+body {
+  margin: 0;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 0.5fr 1fr 1fr 1fr 1fr 0.5fr;
+  grid-template-rows: minmax(10px, 30px) minmax(30px, 320px) minmax(30px, 320px) 1fr 1fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "nav nav nav nav nav nav"
+    "hero hero hero hero hero hero"
+    "hero hero hero hero hero hero"
+    "sideR mid mid mid mid sideL"
+    "sideR foot foot foot foot sideL";
+}
+
+.overflow {
+  position: absolute;
+  width: min-content;
+  height: 20vh;
+  top: 20vh;
+  z-index: 2;
+  transform: rotate(45deg);
+  opacity: 80%;
+}
+
+.nav {
+  grid-area: nav;
+  background-image: url("Filter/navback.png");
+  background-repeat: no-repeat;
+  background-color: #cccccc;
+  background-position: center;
+  background-size: cover;
+  z-index: 1;
+  /* font-style: italic; */
+  font-weight: bold;
+}
+
+.sideR {
+  grid-area: sideR;
+}
+
+.sideL {
+  grid-area: sideL;
+}
+
+.hero {
+  grid-area: hero;
+  background-image: url("Filter/Untitled design.png");
+  background-repeat: no-repeat;
+  background-color: #cccccc;
+  background-position: center;
+  background-size: cover;
+  z-index: 1;
+}
+
+.mid {
+  grid-area: mid;
+}
+
+.foot {
+  grid-area: foot;
+}
+
+/* Style the navbar */
+#navbar {
+  overflow: auto;
+  background: rgb(198, 255, 0);
+  background: linear-gradient(
+    4deg,
+    rgba(198, 255, 0, 0.17139355742296913) 14%,
+    rgba(198, 255, 0, 0.17139355742296913) 20%,
+    rgba(255, 201, 0, 0.5579481792717087) 15%,
+    rgba(217, 155, 92, 0.16299019607843135) 34%,
+    rgba(197, 131, 141, 0.3310574229691877) 34%,
+    rgba(220, 112, 86, 0.14898459383753504) 38%,
+    rgba(255, 81, 0, 0.20220588235294112) 30%
+  );
+  border-bottom: solid 1px gray;
+}
+
+/* Navbar links */
+#navbar a {
+  float: right;
+  display: block;
+  color: darkolivegreen;
+  text-align: center;
+  padding-right: 4rem;
+  padding-left: 2rem;
+  border-right: solid 1px gray;
+  text-decoration: none;
+}
+
+/* Page content */
+/* .content {
+  padding: 16px;
+} */
+
+/* The sticky class is added to the navbar with JS when it reaches its scroll position */
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+/* Add some top padding to the page content to prevent sudden quick movement (as the navigation bar gets a new position at the top of the page (position:fixed and top:0) */
+.sticky + .content {
+  padding-top: 60px;
+}
+
+@media only screen and (min-width: 700px) {
+  .overflow {
+    padding-left: 2rem;
+    padding-right: 15rem;
+    padding-bottom: 5rem;
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  #navbar a {
+    float: right; /* Remove the float to make items stack */
+    padding-right: 0.9rem; /* Adjust padding for better spacing */
+    padding-bottom: 0.2rem;
+    padding-top: 0.2rem;
+    border-right: solid 1px gray; /* Remove the right border for last item */
+  }
+  html {
+    /* font-size: clamp(0.9rem, 1vw, 0.9rem); */
+  }
+}
