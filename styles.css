@@ -1,19 +1,25 @@
 body {
   margin: 0;
+  overflow-x:hidden;
   background-color: bisque;
 }
 
 .flexy {
+  margin: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
+  width:100vw;
+  height:100vh;
 }
 
 .parallax {
+    transform-style: preserve-3d;
+  margin: 0;
   height: 150vh;
   /* width: auto; */
   /* width: 200vh; */
-  overflow-y: auto;
+  
   overflow-x: hidden;
   perspective: 100px;
   background-position: bottom;
@@ -39,10 +45,13 @@ body {
   transform: translateZ(20px);
 }
 
-/* .layer4 {
-  transform: translateZ(5px);
-  z-index: -1;
-} */
+.layer4 {
+  height: 30%;
+  width: 20%;
+  transform: translateZ(50px);
+  transform: rotate(40deg);
+  padding-left: 10rem;
+}
 
 .parallax-layer.layer1 {
   background-image: url("Filter/heroOut.png");
@@ -59,10 +68,10 @@ body {
   background-size: cover;
 }
 
-/* .parallax-layer.layer4 {
-  background-image: url("Filter/visazale.png");
-  background-size: cover;
-} */
+.parallax-layer.layer4 {
+  background-image: url("Filter/logo.png");
+  
+}
 
 @media only screen and (max-width: 800px) {
   .parallax-layer.layer1,
@@ -85,18 +94,17 @@ body {
   .layer3 {
     transform: translateZ(13px);
   }
-  /* .layer4 {
-    transform: translateZ(-px);
-  } */
+  .layer4 {
+    transform: translateZ(20px);
+  }
 
   .parallax {
     height: 130vh;
   }
 }
 */ .parallax-bot {
-  position: absolute;
-  width: 100vw;
-  height: 80vh;
-  top: 100vh;
-  background-color: #fff;
+    width:100vw;
+    height:80vh;
+    top:100vh;
+    background-color:#FFF;
 }
