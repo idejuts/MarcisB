@@ -1,0 +1,117 @@
+/* if you do not have this, you will see a 
+vertical scrollbar on the .parallax div */
+body {
+  margin: 0;
+  background-color: bisque;
+}
+
+.parallax {
+  height: 100vh;
+  width: auto;
+  overflow-y: auto;
+  overflow-x: hidden;
+  perspective: 100px;
+}
+
+.parallax-layer {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.layer1 {
+  transform: translateZ(0px);
+}
+
+.layer2 {
+  transform: translateZ(16px);
+}
+
+.layer3 {
+  transform: translateZ(18px);
+}
+
+.layer4 {
+  transform: translateZ(30px);
+}
+
+.layer5 {
+  transform: translateZ(30px);
+}
+
+/* specific to this implementation */
+div {
+  font-size: 50px;
+  text-align: center;
+}
+
+.parallax-layer.layer1 {
+  /* width: 100%; */
+  /* height: 100rem; */
+  background-image: url("Filter/cent2hero_fons.png");
+  background-size: cover;
+  /* background-color: red; */
+}
+
+.parallax-layer.layer2 {
+  /* top: 10rem; */
+
+  /* width: 100%; */
+  /* height: 50rem; */
+  background-image: url("Filter/cent2hero_debess.png");
+  background-size: cover;
+  /* background-color: green; */
+}
+
+.parallax-layer.layer3 {
+  /* top: 20rem;
+
+  width: 100%;
+  height: 50rem; */
+  background-image: url("Filter/cent2hero_zale.png");
+  background-size: cover;
+  /* background-color: blue; */
+}
+
+.parallax-layer.layer4 {
+  /* top: 20rem;
+  
+    width: 100%;
+    height: 50rem; */
+  background-image: url("Filter/cent_hero_bg.png");
+  background-size: cover;
+  /* background-color: blue; */
+}
+
+.parallax-layer.layer5 {
+  /* top: 20rem;
+  
+    width: 100%;
+    height: 50rem; */
+  background-image: url("Filter/cent_hero_m.png");
+  background-size: cover;
+  /* background-color: blue; */
+}
+
+@media only screen and (max-width: 600px) {
+  /* .parallax {
+    height: auto;
+    perspective: none;
+  }
+
+  .parallax-layer {
+    position: relative;
+    transform: none;
+  } */
+
+  .parallax-layer.layer1,
+  .parallax-layer.layer2,
+  .parallax-layer.layer3,
+  .parallax-layer.layer4,
+  .parallax-layer.layer5 {
+    background-size: cover;
+    background-position: right; /* Show the right part of the images on smaller screens */
+  }
+}
