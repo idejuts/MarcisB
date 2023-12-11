@@ -90,18 +90,18 @@ autoplayCarousel();
 
 document.addEventListener("DOMContentLoaded", function () {
     var overflowElement = document.querySelector(".overflow");
-    var midElement = document.querySelector(".mid");
+    // var midElement = document.querySelector(".mid");
     var footElement = document.querySelector(".foot");
   
     window.addEventListener("scroll", function () {
       var scrollPosition = window.scrollY || window.pageYOffset;
   
       // Calculate the offsets
-      var stopOffsetMid = midElement.offsetTop;
+    //   var stopOffsetMid = midElement.offsetTop;
       var stopOffsetFoot = footElement.offsetTop;
   
       // Check if the scroll position is below the stopOffsetMid but above the stopOffsetFoot
-      if (scrollPosition < stopOffsetMid && scrollPosition < stopOffsetFoot) {
+      if (scrollPosition < stopOffsetFoot) {
         // If yes, make the .overflow element sticky
         overflowElement.style.position = "sticky";
         overflowElement.style.top = "0";
@@ -113,4 +113,14 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
   
+  // Zoom
+
+//   $(window).scroll(function() {
+//     var scroll = $(window).scrollTop();
+//       $(".zoom").css({
+//           backgroundSize: (110 - scroll/115)  + "%",
+          
   
+      
+//       });
+//   });

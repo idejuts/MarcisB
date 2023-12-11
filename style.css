@@ -33,9 +33,9 @@ body {
 .overflow {
   position: fixed;
   width: min-content;
-  height: 20vh;
+  /* height: 20vh; */
   top: 20vh;
-  z-index: 2;
+  z-index: 5;
   transform: rotate(40deg);
   opacity: 90%;
   max-width: 30%;
@@ -64,14 +64,44 @@ body {
 
 .hero {
   grid-area: hero;
-  background-image: url("Filter/Untitled design.png");
+  background-image: url("Filter/cent2hero_zale.png"),
+    url("Filter/cent2hero_fons.png"), url("Filter/cent2hero_debess.png"),
+    url("Filter/cent_hero_bg.png"), url("Filter/cent_hero_m.png");
+
   background-repeat: no-repeat;
   background-color: #cccccc;
   background-position: center;
   background-size: cover;
   z-index: 1;
   position: relative;
+  transition: 0.2s;
 }
+
+/* .mainhero {
+  grid-area: hero;
+  background-image: url("Filter/cent_hero_m.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: auto;
+  z-index: 1;
+  position: relative;
+  transition: 0.2s;
+
+  /* width: 110%;
+  z-index: 7;
+  overflow: visible; */
+
+  /* max-height: min-content;
+  max-width: 100%; */
+
+/* .zoom {
+  background-image: url(Filter/cent_hero_m.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  position: sticky;
+  transition: 0.2s;
+} */
 
 .mid {
   grid-area: mid;
