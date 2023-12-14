@@ -17,6 +17,7 @@ body {
 }
 
 .midflex {
+  margin-top: 3vh;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -29,17 +30,16 @@ body {
   flex-direction: column;
   padding-left: 10px;
   padding-right: 10px;
-  border: 1px solid #ddd;
+  border: 1px solid gray;
   max-width: 290px;
   align-items: flex-start;
   justify-content: center;
+  box-shadow: 10px 5px 5px gray;
 }
 
 .midflex img {
-  width: 50%; /* Set the width to 100% to fill the container */
-  height: 60px;
-  margin-left: 5px;
-  margin-right: 25px;
+  width: 100%; /* Set the width to 100% to fill the container */
+
   object-fit: cover; /* Ensure the image covers the container */
   object-position: center; /* Center the image within the container */
 }
@@ -53,6 +53,7 @@ body {
 .mid {
   grid-area: mid;
   padding-top: 0rem;
+
 }
 
 .container {
@@ -90,16 +91,20 @@ body {
   background-position: center;
   background-size: cover;
   z-index: 1;
-  font-style: italic;
+  /* font-style: italic; */
   font-weight: bold;
 }
 
 .sideR {
   grid-area: sideR;
+  background-image: url("Filter/bg.png");
+  background-repeat: repeat;
 }
 
 .sideL {
   grid-area: sideL;
+  background-image: url("Filter/bg.png");
+  background-repeat: repeat;
 }
 
 .hero {
