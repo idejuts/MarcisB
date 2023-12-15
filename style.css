@@ -4,9 +4,13 @@ html {
   perspective: 1px;
   perspective-origin: center center;
   overflow-x: hidden;
-  background-color: tan;
+  background-color: #241c1f;
   font-family: "Patrick Hand SC", cursive;
   font-size: clamp(1.105rem, 2vw, 1.15rem);
+  filter: url("#grain") saturate(1.1);
+  filter: hue-rotate(var(--value, 350deg));
+  color: lightgoldenrodyellow;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 
   /* font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif; */
@@ -16,22 +20,31 @@ body {
   margin: 0;
 }
 
+.midflex img :hover {
+  transform: scale(1.2);
+}
+
 .midflex {
-  margin-top: 3vh;
+  padding-top: 3vh;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   align-items: flex-start;
   justify-content: space-around;
+  /* background-image: url("Filter/bg2.png"); */
+  background-color: #403a45;
+  padding-bottom: 3vh;
 }
 
 .midflex > * {
   display: flex;
   flex-direction: column;
+  padding-top: 10px;
   padding-left: 10px;
   padding-right: 10px;
+  margin-bottom: 2vh;
   border: 1px solid gray;
-  max-width: 290px;
+  max-width: 390px;
   align-items: flex-start;
   justify-content: center;
   box-shadow: 10px 5px 5px gray;
@@ -53,21 +66,27 @@ body {
 .mid {
   grid-area: mid;
   padding-top: 0rem;
-
 }
 
 .container {
   display: grid;
   grid-template-columns: 0.5fr 1fr 1fr 1fr 1fr 0.5fr;
-  grid-template-rows: minmax(10px, 30px) minmax(30px, 320px) minmax(30px, 320px) 1fr 1fr;
+  grid-template-rows:
+    minmax(10px, 30px) minmax(30px, 320px) minmax(30px, 320px) 5vh
+    0.7fr 1fr;
   gap: 0px 0px;
   grid-auto-flow: row;
   grid-template-areas:
     "nav nav nav nav nav nav"
     "hero hero hero hero hero hero"
     "hero hero hero hero hero hero"
+    "sideL gap gap gap gap sideR"
     "sideL mid mid mid mid sideR"
     "sideL foot foot foot foot sideR";
+}
+
+.pieredze {
+  justify-items: center;
 }
 
 .overflow {
@@ -83,11 +102,19 @@ body {
   height: auto;
 }
 
+.herotomid {
+  grid-area: gap;
+  background-color: #403a45;
+  /* background-image: url("Filter/bg2.png");
+  background-repeat: repeat; */
+  filter: url("#grain") brightness(0.8) saturate(0.8);
+}
+
 .nav {
   grid-area: nav;
   background-image: url("Filter/navback.png");
   background-repeat: no-repeat;
-  background-color: #cccccc;
+
   background-position: center;
   background-size: cover;
   z-index: 1;
@@ -97,21 +124,25 @@ body {
 
 .sideR {
   grid-area: sideR;
-  background-image: url("Filter/bg.png");
-  background-repeat: repeat;
+  background-color: #403a45;
+  /* background-image: url("Filter/bg2.png");
+  background-repeat: repeat; */
+  filter: url("#grain") brightness(0.8) saturate(0.8);
 }
 
 .sideL {
   grid-area: sideL;
-  background-image: url("Filter/bg.png");
-  background-repeat: repeat;
+  background-color: #403a45;
+  /* background-image: url("Filter/bg2.png");
+  background-repeat: repeat; */
+  filter: url("#grain") brightness(0.8) saturate(0.8);
 }
 
 .hero {
   grid-area: hero;
   background-image: url("Filter/Untitled design.png");
   background-repeat: no-repeat;
-  background-color: #cccccc;
+
   background-position: center;
   background-size: cover;
   z-index: 1;
@@ -126,16 +157,16 @@ body {
 /* Style the navbar */
 #navbar {
   overflow: auto;
-  background: rgb(198, 255, 0);
+  background: rgb(66, 62, 51);
   background: linear-gradient(
     4deg,
-    rgba(198, 255, 0, 0.17139355742296913) 14%,
-    rgba(198, 255, 0, 0.17139355742296913) 20%,
-    rgba(255, 201, 0, 0.5579481792717087) 15%,
-    rgba(217, 155, 92, 0.16299019607843135) 34%,
-    rgba(197, 131, 141, 0.3310574229691877) 34%,
-    rgba(220, 112, 86, 0.14898459383753504) 38%,
-    rgba(255, 81, 0, 0.20220588235294112) 30%
+    rgba(66, 62, 51, 0.17139355742296913) 14%,
+    rgba(83, 82, 60, 0.31985294117647056) 20%,
+    rgba(0, 0, 0, 0.5579481792717087) 35%,
+    rgba(90, 77, 64, 0.16299019607843135) 54%,
+    rgba(90, 66, 69, 0.3310574229691877) 64%,
+    rgba(108, 76, 68, 0.14898459383753504) 78%,
+    rgba(255, 255, 255, 0.20220588235294112) 100%
   );
   border-bottom: solid 1px gray;
 }
@@ -150,6 +181,18 @@ body {
   padding-left: 2rem;
   border-right: solid 1px gray;
   text-decoration: none;
+}
+
+.reveal {
+  position: relative;
+  transform: translateY(150px);
+  opacity: 0;
+  transition: 2s all ease;
+}
+
+.reveal.active {
+  transform: translateY(0);
+  opacity: 1;
 }
 
 /* Page content */
@@ -220,7 +263,7 @@ body {
 }
 .slide-indicator.active:after,
 .slide-indicator:hover:after {
-  background-color: #bc7f7f;
+  background-color: black;
 }
 .slide-banner {
   background-color: #000;
